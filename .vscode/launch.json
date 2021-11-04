@@ -2,16 +2,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Attach",
-            "type": "go",
+            "name": "Attach to Kubernetes Pod (Go)",
+            "type": "cloudcode.kubernetes",
             "request": "attach",
-            "mode": "remote",
-            "remotePath": "",
-            "port":2345,
-            "host":"127.0.0.1",
-            "showLog": true,
-            "trace": "log",
-            "logOutput": "rpc"
-        }
+            "language": "Go",
+            "debugPort": 40000,
+            "podSelector": {
+                "app": "server-debug"
+            },
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/root"
+        },
+      
+       
+        {
+            "name": "Kubernetes: Run/Debug",
+            "type": "cloudcode.kubernetes",
+            "request": "launch",
+            "skaffoldConfig": "./skaffold.yml",
+            "watch": true,
+            "cleanUp": true,
+            "portForward": true
+        },
+        
     ]
 }
