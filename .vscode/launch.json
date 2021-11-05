@@ -31,7 +31,7 @@
             },
             "localRoot": "${workspaceFolder}",
             "remotePath": "",
-            "remoteRoot": "/root"
+            "remoteRoot": "/"
         }
     ]
 }
