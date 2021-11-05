@@ -2,10 +2,16 @@ apiVersion: skaffold/v2beta19
 kind: Config
 build:
   artifacts:
-  - image: server-debug
-    custom:
-         buildCommand: make
+  - image: quay.io/amorgant/server-debug
+    docker:
+      dockerfile: docker/debug/Dockerfile
+      noCache: true
+      squash: true
     context: .
+    sync: 
+      auto: true 
+  local:
+    push: true
 deploy:
   kubectl:
     manifests:

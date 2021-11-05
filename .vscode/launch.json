@@ -9,6 +9,16 @@
             "watch": true,
             "cleanUp": true,
             "portForward": true,
+            "imageRegistry": "quay.io",
+            "debug": [
+                {
+                    "image": "quay.io/amorgant/server-debug",
+                    "containerName": "server-debug",
+                    "sourceFileMap": {
+                        "${workspaceFolder}": ""
+                    }
+                }
+            ]
         },
         {
             "name": "Attach to Kubernetes Pod (Go)",

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: server-debug
-        image: quay.io/amorgant/server-debug:latest
+        image: quay.io/amorgant/server-debug
         imagePullPolicy: Always
         resources:
           requests:
