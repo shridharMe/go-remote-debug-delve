@@ -5,10 +5,8 @@ build:
   - image: quay.io/amorgant/server-debug
     custom:
       # environment variable $IMG2 set to the built image2
-      buildCommand: make 
+      buildCommand: make build
     context: .
-  tagPolicy:
-    sha256: {}
 deploy:
   kubectl:
     manifests:
