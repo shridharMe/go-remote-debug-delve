@@ -3,10 +3,8 @@ kind: Config
 build:
   artifacts:
   - image: quay.io/amorgant/server-debug
-    docker:
-      dockerfile: docker/debug/Dockerfile
-      noCache: true
-      squash: true
+    buildpacks:
+      builder: gcr.io/buildpacks/builder:v1
     context: .
     sync: 
       auto: true 
