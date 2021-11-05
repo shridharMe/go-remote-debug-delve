@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Attach to Kubernetes Pod (Go)",
             "type": "cloudcode.kubernetes",
@@ -11,19 +12,18 @@
                 "app": "server-debug"
             },
             "localRoot": "${workspaceFolder}",
+            "remotePath": "",
             "remoteRoot": "/root"
         },
-      
-       
         {
             "name": "Kubernetes: Run/Debug",
             "type": "cloudcode.kubernetes",
             "request": "launch",
-            "skaffoldConfig": "./skaffold.yml",
+            "skaffoldConfig": "${workspaceFolder}/skaffold.yml",
             "watch": true,
             "cleanUp": true,
-            "portForward": true
-        },
+            "portForward": true,
         
+        }
     ]
 }

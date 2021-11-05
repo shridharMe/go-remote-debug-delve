@@ -1,14 +1,15 @@
-apiVersion: skaffold/v1
+apiVersion: skaffold/v2beta19
 kind: Config
 build:
-  tagPolicy:
-     sha256: {}
   artifacts:
   - image: quay.io/amorgant/server-debug
-    docker:
-      dockerfile: docker/debug/Dockerfile
+    custom:
+      # environment variable $IMG2 set to the built image2
+      buildCommand: make 
     context: .
+  tagPolicy:
+    sha256: {}
 deploy:
   kubectl:
     manifests:
-      - k8s/*
+    - k8s/*
