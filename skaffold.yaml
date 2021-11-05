@@ -2,10 +2,9 @@ apiVersion: skaffold/v2beta19
 kind: Config
 build:
   artifacts:
-  - image: quay.io/amorgant/server-debug
+  - image: server-debug
     custom:
-      # environment variable $IMG2 set to the built image2
-      buildCommand: make build
+         buildCommand: make
     context: .
 deploy:
   kubectl:
