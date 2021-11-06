@@ -9,7 +9,6 @@ func main() {
 
 	for {
 		time.Sleep(time.Second * 1)
-		fmt.Println("Hello World")
-		fmt.Println("wwwww")
+		fmt.Println("This is a loop")
 	}
 }
