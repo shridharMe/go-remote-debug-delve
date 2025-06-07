@@ -1,12 +1,11 @@
-FROM golang:1.16 AS build
+FROM golang:1.23.0 AS build
 WORKDIR /
 COPY . .
-RUN CGO_ENABLED=0 go get -ldflags "-s -w -extldflags '-static'" github.com/go-delve/delve/cmd/dlv
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
 RUN CGO_ENABLED=0 go build -gcflags "all=-N -l" -o ./app
 
-FROM alpine
+FROM golang:1.23.0
 WORKDIR /
-COPY . .
-COPY --from=build /go/bin/dlv dlv
-COPY --from=build /app app
-ENTRYPOINT [ "/dlv" , "--listen=:40000", "--headless=true", "--api-version=2", "--accept-multiclient", "exec", "/app"]]
+COPY --from=build /go/bin/dlv /usr/local/bin/dlv
+COPY --from=build /app /app
+ENTRYPOINT ["/usr/local/bin/dlv", "--listen=:40000", "--headless=true", "--api-version=2", "--accept-multiclient", "exec", "/app"]

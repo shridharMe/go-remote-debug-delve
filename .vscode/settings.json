@@ -1,13 +1,14 @@
 {
-    "cloudcode.active-kubeconfig": "minikube-config",
+    "cloudcode.active-kubeconfig": "kind-config",
     "cloudcode.kubeconfigs": [
         {
             "name": "config-rh-worker0",
-            "configPath": "/Users/alknopfler/.kube/config-rh-worker0"
+            "configPath": "/home/ec2-user/.kube/config-rh-worker0"
         },
         {
-            "name": "minikube-config",
-            "configPath": "/home/alknopfler/.kube/config"
+            "name": "kind-config",
+            "configPath": "/home/ec2-user/.kube/config"
         }
-    ]
+    ],
+    "makefile.configureOnOpen": false
 }

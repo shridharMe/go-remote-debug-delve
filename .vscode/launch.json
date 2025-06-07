@@ -8,12 +8,12 @@
             "autoStop": false,
             "skaffoldConfig": "${workspaceFolder}/skaffold.yaml",
             "watch": true,
-            "cleanUp": true,
+            "cleanUp": false,
             "portForward": true,
-            "imageRegistry": "quay.io",
+            "imageRegistry": "shridharpatil01",
             "debug": [
                 {
-                    "image": "quay.io/amorgant/server-debug",
+                    "image": "shridharpatil01/server-debug/server-debug",
                     "containerName": "server-debug",
                     "sourceFileMap": {
                         "${workspaceFolder}": ""
